@@ -1,4 +1,4 @@
-import {Equal, Expect} from "../helper";
+import {Equal, Expect} from "../../helper";
 
 
 const getLocationWeather = (locationId: string) => {
@@ -17,8 +17,8 @@ type GetDetailedWeatherParameters = Parameters<typeof getDetailedWeather>;
 
 type tests = [
     Expect<Equal<GetLocationWeatherReturn, string>>,
-    Expect<Equal<GetDetailedWeatherParameters,Parameters<typeof getDetailedWeather>>>,
-    Expect<Equal<GetDetailedWeatherParameters,[ // 이렇게 튜플값으로 넘기면 동일하게 추론된다
+    Expect<Equal<GetDetailedWeatherParameters, Parameters<typeof getDetailedWeather>>>,
+    Expect<Equal<GetDetailedWeatherParameters, [ // 이렇게 튜플값으로 넘기면 동일하게 추론된다
         locationId: string,
         details?: {
             tempUnit?: 'C' | 'F';

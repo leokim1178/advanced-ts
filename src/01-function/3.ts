@@ -1,12 +1,12 @@
-import {Equal, Expect} from "../helper";
+import {Equal, Expect} from "../../helper";
 
 
-const getUser = ()=>{
+const getUser = () => {
     return Promise.resolve(
         {
             id: "123",
             name: "John",
-            email:"john@example.com"
+            email: "john@example.com"
         }
     )
 }
