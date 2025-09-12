@@ -1,4 +1,4 @@
-import {Equal, Expect} from "../../../helper";
+import {Equal, Expect} from "../../helper";
 
 type Event = `log_in` | "log_out" | "sign_up";
 

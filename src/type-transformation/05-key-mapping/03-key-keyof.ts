@@ -1,4 +1,4 @@
-import {Equal, Expect} from "../../../helper";
+import {Equal, Expect} from "../../helper";
 
 interface Attributes {
     firstName: string;

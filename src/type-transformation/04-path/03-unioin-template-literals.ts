@@ -1,4 +1,4 @@
-import {Equal, Expect} from "../../../helper";
+import {Equal, Expect} from "../../helper";
 
 type Top = "t-shirt" | "shirts" | "jacket";
 

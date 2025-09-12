@@ -1,4 +1,4 @@
-import {Equal, Expect} from "../../../helper";
+import {Equal, Expect} from "../../helper";
 
 const rgb = ["red", "green", "blue"] as const;
 // string array -> union 타입으로 추론되도록 변경
