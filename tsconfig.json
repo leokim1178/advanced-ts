@@ -1,12 +1,53 @@
 {
+  // Visit https://aka.ms/tsconfig to read more about this file
+  // 1.compilerOptions : 컴파일러의 옵션 설정
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    // File Layout
+    // "rootDir": "./src",
+    "outDir": "./dist", // 리액트는 dist, next.js는 .next 등으로 설정하는 경우가 많다
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "nodenext",
+    // 기본적으로 node2022 이상으로 설정하는 것이 좋다
+    // 대소문자는 구분하지 않는다
+    "target": "esnext",
+    "types": [],
+    // For nodejs:
+    // "lib": ["esnext"],
+
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
     "strict": true,
-    "skipLibCheck": true,
-    "outDir": "dist"
+    // js를 ts로 마이그레이션을 할때는 옵션을 바꿔도 되지만 그 외의 경우 이걸 false로 바꾸는 것은 권장하지 않는다
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
   },
-  "include": ["src"]
+  // 2.include : 컴파일 대상 파일 설정
+  "include": ["./src"],
+  // 3.exclude : 컴파일 제외 파일 설정
+  "exclude": ["./node_modules", "./dist"] // 지금 위의 include에 src만 지정했기 때문에 exclude는 사실상 필요없다
 }

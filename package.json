@@ -1,15 +1,24 @@
 {
   "name": "advanced-ts",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "- inflearn - `실전 연습으로 익히는 고급 타입스크립트 기술` 공부 기록 - inflearn - `@시코 - TypeScript 제대로 배우기` 공부 기록 - typescript best practice",
+  "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leokim1178/advanced-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leokim1178/advanced-ts/issues"
+  },
+  "homepage": "https://github.com/leokim1178/advanced-ts#readme",
   "devDependencies": {
-    "typescript": "^5.5.3",
-    "vitest": "^3.2.4"
-  },
-  "private": true
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
 }
