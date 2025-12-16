@@ -26,7 +26,7 @@
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    // "exactOptionalPropertyTypes": true,
 
     // Style Options
     // "noImplicitReturns": true,
@@ -38,6 +38,7 @@
 
     // Recommended Options
     "strict": true,
+    // "strictNullChecks": false,
     // js를 ts로 마이그레이션을 할때는 옵션을 바꿔도 되지만 그 외의 경우 이걸 false로 바꾸는 것은 권장하지 않는다
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
