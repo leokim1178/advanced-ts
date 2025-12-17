@@ -134,3 +134,8 @@ h는 boolean | string 타입이었지만 if문 조건식에서 truthy로 확인�
 
 - 엄격한 null 검사 옵션
 - null 혹은 undefined 타입을 참조/할당했을 때 타입에러 발생 여부를 설정하는 옵션이다
+
+심볼테이블은 key부터 검사하고 value를 검사한다
+
+never는 존재할수 없는 타입이다
+타입을 알 수 없는 경우 never 타입이 된다
