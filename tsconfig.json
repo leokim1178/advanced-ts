@@ -39,6 +39,12 @@
     // Recommended Options
     "strict": true,
     // "strictNullChecks": false,
+    // "strictFunctionTypes": true, // 파라미터로 전달되는 함수는 Contravariant 하다
+    // "strictBindCallApply": true, // bind, call, apply 일 때 this 타입과 맞춰야 한다
+    // "strictPropertyInitialization": true, // 클래스 멤버 변수를 반드시 초기화해야 한다
+    // "noImplicitThis": true, // closure에서 this 타입을 any로 추론하지 않는다
+    // "alwaysStrict": true, // 자바스크립트 모드에서 엄격 모드로 컴파일 한다
+
     // js를 ts로 마이그레이션을 할때는 옵션을 바꿔도 되지만 그 외의 경우 이걸 false로 바꾸는 것은 권장하지 않는다
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
