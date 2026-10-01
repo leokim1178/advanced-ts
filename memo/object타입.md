@@ -101,6 +101,7 @@ dogHandler = animalHandler; // bivariance
 3. **strictFunctionTypes 옵션**
    - `true` (권장): 함수 매개변수가 올바르게 contravariant로 동작
    - `false`: 함수 매개변수가 bivariant로 동작 (타입 안정성 저하)
+   - 단, `true`여도 메서드 문법(`m(a: T): void`)으로 선언한 메서드의 매개변수는 bivariant로 남는다. 옵션은 함수 타입(`f: (a: T) => void`)에만 적용된다 (2026-10 보충, 출처: https://www.typescriptlang.org/tsconfig/#strictFunctionTypes)
 
 ```ts
 class Animal {

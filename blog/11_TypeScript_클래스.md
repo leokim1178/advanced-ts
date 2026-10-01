@@ -155,12 +155,16 @@ class AsNumber implements AgeIsANumber, AgeIsNotANumber {
 **동일한 속성/메서드명이 있을 때:**
 
 - **속성**: 타입이 일치하지 않으면 오류
-- **메서드**: **반공변성(ContraVariance)** 적용 - 시그니처가 더 작은 쪽이 선택됨
+- **메서드**: 클래스의 메서드가 두 인터페이스의 시그니처 모두에 할당 가능해야 함
 
 ### 인터페이스 상속 규칙
 
-- **메서드**: 반공변성으로 상속 가능 (자식이 부모보다 구체적이어야 함)
-- **속성**: 타입이 일치하지 않으면 오류
+> 2026-10 정정: "메서드는 반공변성으로 상속 (자식이 부모보다 구체적이어야 함)"은 틀렸다. 반공변이면 자식의 매개변수 타입은 더 넓어야 한다.
+
+- **매개변수 개수**: 자식이 부모보다 적으면 OK, 많으면 오류 (아래 예시가 통과하는 이유)
+- **매개변수 타입**: 함수 타입 프로퍼티(`f: (a: T) => void`)는 `strictFunctionTypes`에서 반공변, 메서드 문법(`m(a: T): void`)과 클래스 override는 옵션과 무관하게 bivariant
+- **속성**: 부모 타입에 할당 가능하지 않으면 오류
+- 출처: [TS 핸드북 Type Compatibility](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#comparing-two-functions), [strictFunctionTypes](https://www.typescriptlang.org/tsconfig/#strictFunctionTypes)
 
 ```ts
 interface AgeIsANumber {
@@ -169,8 +173,8 @@ interface AgeIsANumber {
 }
 
 interface AgeIsNotANumber extends AgeIsANumber {
-  age: (n: number, s: string) => string; // OK: 더 구체적
-  m(): void; // OK: 더 구체적
+  age: (n: number, s: string) => string; // OK: 매개변수가 더 적음
+  m(): void; // OK: 매개변수가 더 적음
 }
 ```
 

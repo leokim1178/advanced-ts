@@ -181,14 +181,20 @@ class NotAsNumber implements AgeIsANumber, AgeIsNotANumber {
 다중 구현 규칙 (동일 속성/메소드 명)
 
 - 속성 ⇒ 일치하지 않으면 Error
-- 함수 & 함수 ⇒ ContraVariance (합쳐졌을 때 시그니처가 작은쪽 승리)
+- 함수 & 함수 ⇒ 클래스의 메서드가 두 인터페이스의 시그니처 모두에 할당 가능해야 한다 (위 `m()`처럼 매개변수가 적은 쪽이면 둘 다 만족)
 
 interface 상속 규칙 (동일 속성/메소드 명)
 
-- 함수는 contraVariance로 상속 가능 (부모보다 자식이 작아야)
-  ⇒ 함수 override의 경우에도 contra-variance(더 구체적이어야!)
-- 함수가 아닌 속성은 일치하지 않으면 Error!
-  결국 구현되는 메소드(함수)는 작은 스펙(시그니처)가 된다!
+> 2026-10 정정: 처음엔 "함수는 contraVariance로 상속, override도 contra-variance(더 구체적이어야!)"라고 적었는데 틀렸다.
+> 반공변이면 자식의 매개변수 타입은 부모보다 **넓어야** 하고(더 구체적이면 안 됨), 아래 예시가 통과하는 이유는 variance가 아니라 매개변수 **개수** 규칙이다.
+
+- 매개변수 개수: 자식 함수의 매개변수가 부모보다 적으면 OK, 많으면 Error (JS는 남는 인자를 무시하므로) → 아래 `age`, `m()`이 통과하는 이유
+- 매개변수 타입:
+  - 함수 타입 프로퍼티(`f: (a: Animal) => void`)는 `strictFunctionTypes`(strict에 포함)에서 반공변 → 자식이 `(a: Dog) => void`로 좁히면 Error, `Animal`보다 넓히는 건 OK
+  - 메서드 문법(`m(a: Animal): void`)과 클래스 메서드 override는 `strictFunctionTypes`가 켜져 있어도 bivariant → `m(a: Dog)`로 좁혀도 통과한다 (타입 안전하지 않음)
+  - TypeScript 5.9 `--strict`로 직접 확인: 프로퍼티를 좁힌 쪽만 TS2430 에러, 메서드·override를 좁힌 쪽은 통과
+- 함수가 아닌 속성은 부모 타입에 할당 가능해야 한다 (`name: string` → `number`는 Error)
+- 출처: https://www.typescriptlang.org/docs/handbook/type-compatibility.html#comparing-two-functions , https://www.typescriptlang.org/docs/handbook/type-compatibility.html#function-parameter-bivariance , https://www.typescriptlang.org/tsconfig/#strictFunctionTypes
 
 ```ts
 interface AgeIsANumber {
