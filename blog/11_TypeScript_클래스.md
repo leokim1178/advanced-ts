@@ -164,7 +164,7 @@ class AsNumber implements AgeIsANumber, AgeIsNotANumber {
 - **매개변수 개수**: 자식이 부모보다 적으면 OK, 많으면 오류 (아래 예시가 통과하는 이유)
 - **매개변수 타입**: 함수 타입 프로퍼티(`f: (a: T) => void`)는 `strictFunctionTypes`에서 반공변, 메서드 문법(`m(a: T): void`)과 클래스 override는 옵션과 무관하게 bivariant
 - **속성**: 부모 타입에 할당 가능하지 않으면 오류
-- 출처: [TS 핸드북 Type Compatibility](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#comparing-two-functions), [strictFunctionTypes](https://www.typescriptlang.org/tsconfig/#strictFunctionTypes)
+- 출처: [TS 핸드북 Type Compatibility](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#comparing-two-functions), [strictFunctionTypes](https://www.typescriptlang.org/tsconfig/strictFunctionTypes.html)
 
 ```ts
 interface AgeIsANumber {

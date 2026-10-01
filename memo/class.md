@@ -194,7 +194,7 @@ interface 상속 규칙 (동일 속성/메소드 명)
   - 메서드 문법(`m(a: Animal): void`)과 클래스 메서드 override는 `strictFunctionTypes`가 켜져 있어도 bivariant → `m(a: Dog)`로 좁혀도 통과한다 (타입 안전하지 않음)
   - TypeScript 5.9 `--strict`로 직접 확인: 프로퍼티를 좁힌 쪽만 TS2430 에러, 메서드·override를 좁힌 쪽은 통과
 - 함수가 아닌 속성은 부모 타입에 할당 가능해야 한다 (`name: string` → `number`는 Error)
-- 출처: https://www.typescriptlang.org/docs/handbook/type-compatibility.html#comparing-two-functions , https://www.typescriptlang.org/docs/handbook/type-compatibility.html#function-parameter-bivariance , https://www.typescriptlang.org/tsconfig/#strictFunctionTypes
+- 출처: https://www.typescriptlang.org/docs/handbook/type-compatibility.html#comparing-two-functions , https://www.typescriptlang.org/docs/handbook/type-compatibility.html#function-parameter-bivariance , https://www.typescriptlang.org/tsconfig/strictFunctionTypes.html
 
 ```ts
 interface AgeIsANumber {
