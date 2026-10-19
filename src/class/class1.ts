@@ -1,3 +1,15 @@
+
+
+// type T = (n:number)=> string;
+type T = (n:number)=> void;
+let t: T = (n:number)=> void;
+let t2: T = (n:number)=>{};
+
+
+// property는 객체에서 부르는 용어
+// attribute는 class에서 부른다
+
+
 class SampleClass1 {
   name: string; // 이렇게 그냥 선언하면 초기화를 안했다는 오류가 발생한다
   // 따라서 아래와 같이 생성자에서 초기화 해줘야한다
